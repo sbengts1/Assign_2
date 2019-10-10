@@ -7,13 +7,15 @@
 
  * This file contains the AddingMachine class and the supporting methods and 
  * variables as described in assignment 2.
+ * 
+ * https://github.com/sbengts1/Assign_2
  */
 
 package cse360assign2;
 
 /**
  * An adding machine that keeps track of a total amount and a history of
- * operations that were performed on that total amount.
+ * transactions that were performed on that total amount.
  */
 public class AddingMachine {
 
@@ -24,11 +26,18 @@ public class AddingMachine {
 	private int total;
 	
 	/**
+	 * A string that stores the history of all transactions performed on the 
+	 * total.
+	 */
+	private String transactions;
+	
+	/**
 	 * A constructor for {@link AddingMachine} that sets the value of the total
-	 * to 0.
+	 * and the value of the transactions string to 0.
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		transactions = "0";
 	}
 	
 	/**
@@ -37,39 +46,45 @@ public class AddingMachine {
 	 * @return the current value of the total
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
-	 * Adds the supplied value to the total.
+	 * Adds the supplied value to the total and updates the transactions string
+	 * to include the add operation.
 	 * 
 	 * @param value the value to be added to the total
 	 */
 	public void add (int value) {
-		
+		total += value;
+		transactions += " + " + String.valueOf(value);
 	}
 	
 	/**
-	 * Subtracts the supplied value from the total.
+	 * Subtracts the supplied value from the total and updates the transactions
+	 * string to include the subtract operation.
 	 * 
 	 * @param value the value that will be subtracted from the total
 	 */
 	public void subtract (int value) {
-		
+		total -= value;
+		transactions += " - " + String.valueOf(value);
 	}
 	
 	/**
-	 * Returns a string that details the history of operations that were 
-	 * performed on the total.
+	 * Returns the transactions string which details the history of 
+	 * transactions performed on the total.
 	 */
 	public String toString () {
-		return "";
+		return transactions;
 	}
 
 	/**
-	 * Resets the value of the total to zero.
+	 * Resets the value of the total and the value of the transactions string
+	 * to zero.
 	 */
 	public void clear() {
-	
+		total = 0;
+		transactions = "0";
 	}
 }
